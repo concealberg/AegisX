@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Get backend URL from environment
-const API_BASE = `${process.env.REACT_APP_BACKEND_URL}/api`;
+// Get backend URL from environment with a local fallback for source runs.
+const API_BASE = `${(process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001').replace(/\/$/, '')}/api`;
 
 // Create axios instance with default config
 const apiClient = axios.create({
